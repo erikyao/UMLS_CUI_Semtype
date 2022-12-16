@@ -63,7 +63,7 @@ def get_preferred_english_cui_names(mrconso_df: pd.DataFrame) -> pd.DataFrame:
 
     columns = ["CUI", "STR"]
 
-    # For 2022AB release, given the above filtering condition, each CUI in the following data frame has only one preferred English name
+    # For 2022AA release, given the above filtering condition, each CUI in the following data frame has only one preferred English name
     mrconso_pref_eng_df = mrconso_df.loc[ts_flags & stt_flags & ispref_flags & lat_flags, columns]
     return mrconso_pref_eng_df
 
