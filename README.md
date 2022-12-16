@@ -1,0 +1,1 @@
+# UMLS_CUI_Semtype
