@@ -68,6 +68,22 @@ def get_preferred_english_cui_names(mrconso_df: pd.DataFrame) -> pd.DataFrame:
     return mrconso_pref_eng_df
 
 
+def get_preferred_non_english_cui_names(mrconso_df: pd.DataFrame) -> pd.DataFrame:
+    ts_flags = (mrconso_df["TS"] == "P")
+    stt_flags = (mrconso_df["STT"] == "PF")
+    ispref_flags = (mrconso_df["ISPREF"] == "Y")
+
+    columns = ["CUI", "LAT", "STR"]
+    mrconso_pref_df = mrconso_df.loc[ts_flags & stt_flags & ispref_flags, columns]
+
+    mrconso_pref_df["is_ENG"] = mrconso_pref_df["LAT"].eq("ENG")
+    flags = mrconso_pref_df.groupby("CUI")["is_ENG"].apply(lambda x: x.any()).reset_index(name="has_ENG")
+    mrconso_pref_df = mrconso_pref_df.merge(flags, on="CUI")  # join on the common "CUI" columns
+    del mrconso_pref_df["is_ENG"]
+
+    return mrconso_pref_df.loc[~mrconso_pref_df["has_ENG"], columns]
+
+
 def read_mrsty_data_frame(data_folder, filename) -> pd.DataFrame:
     filepath = os.path.join(data_folder, filename)
     column_info = [
