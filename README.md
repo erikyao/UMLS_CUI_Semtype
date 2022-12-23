@@ -35,7 +35,7 @@ JSON-lines data example (formatted for readability):
             "abbreviation": "irda"
         }
     ]
-},
+}
 {
     "CUI": "C0000039",
     "concept_name": "1,2-dipalmitoylphosphatidylcholine",
@@ -49,7 +49,7 @@ JSON-lines data example (formatted for readability):
             "abbreviation": "phsu"
         }
     ]
-},
+}
 {
     "CUI": "C0000052",
     "concept_name": "1,4-alpha-Glucan Branching Enzyme",
@@ -63,7 +63,7 @@ JSON-lines data example (formatted for readability):
             "abbreviation": "enzy"
         }
     ]
-},
+}
 {
     "CUI": "C0000103",
     "concept_name": "1-Naphthylisothiocyanate",
