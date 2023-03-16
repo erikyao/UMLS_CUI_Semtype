@@ -2,6 +2,19 @@
 
 This repo generates tabular and JSON-lines data on UMLS CUIs, concept names, semantic type names and abbreviations.
 
+Suggested folder structure for input files is:
+
+```txt
+── <UMLS_RELEASE>
+│   └── META
+│       ├── MRCONSO.RRF
+│       └── MRSTY.RRF
+├── SemanticTypes_2018AB.txt
+└── parser.py
+```
+
+where the `<UMLS_RELEASE>` is the release tag of the UMLS Metathesaurus, e.g. `2022AB`. 
+
 Tabular data example:
 
 |CUI      |concept_name                        | semantic_type_name                    | semantic_type_abbreviation |
